@@ -1,0 +1,173 @@
+paths:
+  /message:
+    post:
+      tags:
+        - Message
+      summary: Create a message
+      description: Create a message
+      operationId: message.create
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: The new message to create
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  example: hello world
+                roomId:
+                  type: integer
+                  example: 1
+                userId:
+                  type: integer
+                  example: 1
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Message created successfully
+                messageId: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                4000:
+                  summary: "4000"
+                  value:
+                    error: content must be a string | roomId and userId must be numbers
+                    errorCode: 4000
+                4002:
+                  summary: "4002"
+                  value:
+                    error: Missing data
+                    errorCode: 4002
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                summary: 4001
+                value:
+                  error: Internal server error
+                  errorCode: 4001
+  /message/{id}:
+    delete:
+      tags:
+        - Message
+      summary: Deletes a message
+      description: Deletes a message
+      operationId: message.delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Message id to delete
+          required: true
+          example : 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Message deleted successfully
+                numberRowsUpdated: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                4011:
+                  summary: "4011"
+                  value:
+                    error: id must be a number
+                    errorCode: 4011
+                4012:
+                  summary: "4012"
+                  value:
+                    error: Missing data
+                    errorCode: 4012
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Message not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Message not found"
+                  errorCode:
+                    type: integer
+                    example: 4013
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                summary: 4010
+                value:
+                  error: Internal server error
+                  errorCode: 4010
+
+components:
+  schemas:
+    Message:
+      type: object
+      required:
+        - message_id
+        - content
+        - room_id
+        - user_id
+      properties:
+        message_id:
+          type: integer
+          description: "Message id"
+        content:
+          type: string
+          description: "Message content"
+        sending_date:
+          type: string
+          description: "Message's sending date & time"
+        room_id:
+          type: integer
+          description: "RoomId in which the message was sent"
+        user_id:
+          type: integer
+          description: "UserId of message sender"

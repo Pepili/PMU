@@ -1,0 +1,1353 @@
+paths:
+  /currentGames/{roundId}:
+    post:
+      tags:
+        - CurrentGames
+      summary: Create a current game
+      description: Create a current game
+      operationId: currentGames.create
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: roundId
+          in: path
+          description: Round id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roundId:
+                  type: integer
+                  example: 1
+                deck:
+                  type: array
+                  example: [
+                        {
+                          "id": "Marcel_6",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_9",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_4",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_13",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_3",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_11",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_9",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_10",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_8",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_3",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_2",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_12",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_2",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_10",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_12",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_10",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_8",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_9",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_4",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_8",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_3",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_7",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_4",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_5",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_1",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_1",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_8",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_11",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_11",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_3",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_11",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_5",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_5",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_13",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_13",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_2",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_7",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_6",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_12",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_1",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_1",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        }
+                      ]
+                discard:
+                  type: array
+                  example: [
+                        {
+                          "id": "Gerard_6",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_2",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_5",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_4",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_9",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_6",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        }
+                      ]
+                inconvenientCard:
+                  type: array
+                  example: [
+                        {
+                          "id": "Jean-Jacques_6",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Roger_9",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Jean-Jacques_4",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Jean-Jacques_5",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Marcel_2",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png",
+                          "use": true
+                        }
+                      ]
+                positionHorse:
+                  type: array
+                  example: [
+                        {
+                          "type": "Roger",
+                          "position": 1
+                        },
+                        {
+                          "type": "Marcel",
+                          "position": 0
+                        },
+                        {
+                          "type": "Jean-Jacques",
+                          "position": 3
+                        },
+                        {
+                          "type": "Gerard",
+                          "position": 1
+                        }
+                      ]
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Game added successfully with all horses locations at 0
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                6000:
+                  summary: "6000"
+                  value:
+                    error: roundId must be a number
+                    errorCode: 6000
+                6006:
+                  summary: "6006"
+                  value:
+                    error: Missing data
+                    errorCode: 6006
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Round not found or status is 0
+          content:
+            application/json:
+              example:
+                error: Round not found or status is 0
+                errorCode: 6002
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              examples:
+                6001:
+                  summary: "6001"
+                  value:
+                    error: Internal server error
+                    errorCode: 6001
+                6003:
+                  summary: "6003"
+                  value:
+                    error: Internal server error
+                    errorCode: 6003
+                6005:
+                  summary: "6005"
+                  value:
+                    error: Internal server error
+                    errorCode: 6005
+    get:
+      tags:
+        - CurrentGames
+      summary: Get a current game by a round id
+      description: Get a current game by a round id
+      operationId: currentGames.get
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: roundId
+          in: path
+          description: Round id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                roundId: 1
+                horse1Loc: 0
+                horse2Loc: 0
+                horse3Loc: 0
+                horse4Loc: 0
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                6030:
+                  summary: "6030"
+                  value:
+                    error: roundId must be a number
+                    errorCode: 6030
+                6033:
+                  summary: "6033"
+                  value:
+                    error: Missing data
+                    errorCode: 6033
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: No current game with the given roundId exists
+          content:
+            application/json:
+              example:
+                error: No current game with the given roundId exists
+                errorCode: 6032
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 6031
+    delete:
+      tags:
+        - CurrentGames
+      summary: Delete a current game
+      description: Delete a current game
+      operationId: currentGames.delete
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: roundId
+          in: path
+          description: Round id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Game deleted successfully
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                6020:
+                  summary: "6020"
+                  value:
+                    error: roundId must be a number
+                    errorCode: 6020
+                6024:
+                  summary: "6024"
+                  value:
+                    error: Missing data
+                    errorCode: 6024
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: No current game with the given roundId exists
+          content:
+            application/json:
+              example:
+                error: No current game with the given roundId exists
+                errorCode: 6022
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              examples:
+                6021:
+                  summary: "6021"
+                  value:
+                    error: Internal server error
+                    errorCode: 6021
+                6023:
+                  summary: "6023"
+                  value:
+                    error: Internal server error
+                    errorCode: 6023
+  /currentGames:
+    put:
+      tags:
+        - CurrentGames
+      summary: Update a current game
+      description: Update a current game
+      operationId: currentGames.update
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: The new current game state
+        content:
+          application/json:
+              schema:
+              type: object
+              properties:
+                roundId:
+                  type: integer
+                  example: 1
+                deck:
+                  type: array
+                  example: [
+                        {
+                          "id": "Jean-Jacques_9",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_4",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_13",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_3",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_11",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_9",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_10",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_8",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_3",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_2",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_12",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_2",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_10",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_12",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_10",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_8",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_9",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_4",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_8",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_3",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_7",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_4",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_5",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_1",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_1",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_8",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_11",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_11",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_3",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_11",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_5",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_5",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_13",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_13",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_2",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_7",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_6",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_12",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_1",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_1",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        }
+                      ]
+                discard:
+                  type: array
+                  example: [
+                        {
+                          "id": "Gerard_6",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_2",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_5",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_4",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_9",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_6",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        }
+                      ]
+                inconvenientCard:
+                  type: array
+                  example: [
+                        {
+                          "id": "Jean-Jacques_6",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Roger_9",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Jean-Jacques_4",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Jean-Jacques_5",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Marcel_2",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png",
+                          "use": true
+                        }
+                      ]
+                positionHorse:
+                  type: array
+                  example: [
+                        {
+                          "type": "Roger",
+                          "position": 1
+                        },
+                        {
+                          "type": "Marcel",
+                          "position": 2
+                        },
+                        {
+                          "type": "Jean-Jacques",
+                          "position": 3
+                        },
+                        {
+                          "type": "Gerard",
+                          "position": 1
+                        }
+                      ]
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Game updated successfully
+                newCurrentGame:
+                    roundId: 1
+                    deck: [
+                        {
+                          "id": "Jean-Jacques_9",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_4",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_13",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_3",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_11",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_9",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_10",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_8",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_3",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_2",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_12",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_2",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_10",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_12",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_10",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_8",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_9",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_4",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_8",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_3",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_7",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_4",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_5",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_1",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_1",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_8",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_11",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_11",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_3",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_11",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_5",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_5",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_13",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_13",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_2",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_7",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_6",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_12",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Gerard_1",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_1",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        }
+                      ]
+                    discard: [
+                        {
+                          "id": "Gerard_6",
+                          "type": "Gerard",
+                          "img": "/media/gerard.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Marcel_2",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_5",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_4",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Roger_9",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png"
+                        },
+                        {
+                          "id": "Jean-Jacques_6",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png"
+                        }
+                      ]
+                    inconvenientCard: [
+                        {
+                          "id": "Jean-Jacques_6",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Roger_9",
+                          "type": "Roger",
+                          "img": "/media/roger.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Jean-Jacques_4",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Jean-Jacques_5",
+                          "type": "Jean-Jacques",
+                          "img": "/media/jean-jacques.png",
+                          "logo": "/media/logo.png",
+                          "use": false
+                        },
+                        {
+                          "id": "Marcel_2",
+                          "type": "Marcel",
+                          "img": "/media/marcel.png",
+                          "logo": "/media/logo.png",
+                          "use": true
+                        }
+                      ]
+                    positionHorse: [
+                        {
+                          "type": "Roger",
+                          "position": 1
+                        },
+                        {
+                          "type": "Marcel",
+                          "position": 2
+                        },
+                        {
+                          "type": "Jean-Jacques",
+                          "position": 3
+                        },
+                        {
+                          "type": "Gerard",
+                          "position": 1
+                        }
+                      ]
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                6010:
+                  summary: "6010"
+                  value:
+                    error: roundId, horse1Loc, horse2Loc, horse3Loc and horse4Loc must be numbers
+                    errorCode: 6010
+                6013:
+                  summary: "6013"
+                  value:
+                    error: The position of one or more horses is greater than the size of the game board
+                    errorCode: 6013
+                6015:
+                  summary: "6015"
+                  value:
+                    error: No game with the specified roundId exists
+                    errorCode: 6015
+                6017:
+                  summary: "6017"
+                  value:
+                    error: Missing data
+                    errorCode: 6017
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Round not found or status is 0
+          content:
+            application/json:
+              example:
+                error: Round not found or status is 0
+                errorCode: 6012
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              examples:
+                6011:
+                  summary: "6011"
+                  value:
+                    error: Internal server error
+                    errorCode: 6011
+                6014:
+                  summary: "6014"
+                  value:
+                    error: Internal server error
+                    errorCode: 6014
+                6016:
+                  summary: "6016"
+                  value:
+                    error: Internal server error
+                    errorCode: 6016

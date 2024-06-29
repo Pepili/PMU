@@ -1,0 +1,129 @@
+.cards {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+    width: 100px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    background-color: $text; /* Fond blanc */
+}
+  
+.drawCard, .discardCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.drawCard {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 70px; /* Taille du logo */
+  height: 70px;
+}
+
+.type {
+  margin-top: 15px; /* Espace au-dessus du type de carte */
+  color:$footer;
+}
+
+.img-bottom {
+  position: absolute;
+  bottom: 0; /* Espacement au bas de la carte */
+  left: 50%; /* Centré horizontalement */
+  transform: translateX(-50%);
+  width: 90px; /* Taille de l'image en bas de la carte */
+  height: 90px;
+}
+
+
+.popup {
+  position: fixed; // Positionne le popup par rapport à la fenêtre du navigateur
+  top: 0; // Aligne le popup en haut de la fenêtre
+  left: 0; // Aligne le popup à gauche de la fenêtre
+  width: 100%; // Prend toute la largeur de la fenêtre
+  height: 100%; // Prend toute la hauteur de la fenêtre
+  background-color: rgba(0, 0, 0, 0.603); // Fond semi-transparent pour l'effet de superposition
+  display: flex; // Utilise flexbox pour centrer le contenu verticalement et horizontalement
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; // Assure que le popup est au-dessus du header
+  p {
+      height: 70px;
+      line-height: 70px;
+      font-family: 'raleway';
+      font-size: 18px;
+  }
+}
+
+.closeCard {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+@media all and (max-width: 1120px) {
+  .cards {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 15vh;
+  }
+  .card {
+    width: 70px;
+    height: 100px;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }  
+  .logo {
+    width: 45px; /* Taille du logo */
+    height: 45px;
+  }
+  .img-bottom {
+    width: 55px; /* Taille de l'image en bas de la carte */
+    height: 55px;
+  }
+  .type {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .popupContent {
+    img {
+      width: 250px;
+      display: block;
+      margin: auto;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+
+  

@@ -1,0 +1,158 @@
+.racetrack, .playerChat {
+    display: flex;
+    align-self: stretch;
+    flex:1;
+    align-items: center;
+    justify-content: center;
+}
+
+.track {
+    width:650px;
+    height: 640px;
+    overflow-y: scroll;
+    position: relative;
+    z-index: 1;
+        &::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #00000000;
+        }
+
+        &::-webkit-scrollbar
+        {
+            width: 6px;
+            background-color: $footer;
+            border-radius:5px;
+        }
+
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: $text;
+            border-radius: 5px;
+
+        }
+}
+.lastStage {
+    .horseRun {
+        z-index: 2;
+        margin-bottom: 20px;
+    }
+}
+.stage {
+    position: relative;
+    background-color: $color-tertiary;
+    width: 542px;
+    height: 120px;
+    border-bottom: 2px solid $footer;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    float: right;
+    img {
+        width: 90px;
+        height:90px;
+    }
+    .finish-line {
+        background-size: cover; // pour ajuster l'image à la div
+        background-repeat: no-repeat;
+        height: 20px;
+        width: 100%; // pour prendre toute la largeur de la div parente
+        border: 2px solid $footer;
+        position: absolute;
+        z-index: 1;
+
+
+    }
+    .cardInconvenient {
+        width: 85px;
+        height: 110px;
+        background-color: $text;
+        position: absolute;
+        left: -95px; // Décalage vers la gauche pour sortir de la div
+        bottom: 5px; // Alignement au bas de la div parente
+        border-radius: 5px;
+        text-align: center;
+        .imgInconvenient {
+            position: absolute;
+            bottom: 0; /* Espacement au bas de la carte */
+            left: 50%; /* Centré horizontalement */
+            transform: translateX(-50%);
+            width: 75px; /* Taille de l'image en bas de la carte */
+            height: 75px;
+        }
+        .typeInconvenient {
+            margin-top: 10px; /* Espace au-dessus du type de carte */
+            color:$footer;
+            font-size: 12px;
+        }
+        .logoInconvenient {
+            width: 60px;
+            height: 60px;
+        }
+        &.logoVisible {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+#position0 {
+    border-bottom: 0;
+}
+
+/* Définissez l'animation de zoom et de dézoom */
+@keyframes zoomInOut {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); } /* Zoom à 120% à mi-chemin */
+    100% { transform: scale(1); } /* Retour à la taille normale */
+}
+
+/* Appliquer l'animation à la classe borderRed */
+.borderRed {
+    border: 3px solid $color-secondary;
+    transition: transform 0.3s ease-in; /* Animation de transition */
+    animation: zoomInOut 1s infinite alternate; /* Utilisation de l'animation dès le rendu initial */
+}
+
+@media all and (max-width: 1120px) {
+    .racetrack {
+        align-self: auto;
+        width: 100%;
+        justify-content: center;
+    }
+    .track {
+        height: auto;
+        overflow-y: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left:54px;
+    }
+    .stage {
+        width: 70vw;
+        min-width: 300px;
+        height: 8vh;
+        img {
+            width: 60px !important;
+            height:60px !important;
+        }
+    }
+    .cardInconvenient {
+        width: 42px !important;
+        height: 64px !important;
+        left: -52px !important;
+        .logoInconvenient {
+            width: 35px !important;
+            height: 35px !important;
+        }
+        .imgInconvenient {
+            width: 40px !important; 
+            height: 40px !important;
+            left: 48% !important;
+        }
+    }
+    .lastStage {
+        height: 80px;
+    }
+}

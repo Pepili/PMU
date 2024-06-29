@@ -1,0 +1,213 @@
+paths:
+  /user:
+    post:
+      tags:
+        - User
+      summary: Create a user
+      description: Create a user
+      operationId: user.signUp
+      requestBody:
+        description: The new user to create
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pseudo:
+                  type: string
+                  example: john
+                email:
+                  type: string
+                  example: test@domain.com
+                password:
+                  type: string
+                  example: VeryDifficultP@ssw0rd
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: User created successfully
+                userId: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                1005:
+                  summary: "1005"
+                  value:
+                    error: pseudo, email & password must be strings
+                    errorCode: 1005
+                1000:
+                  summary: "1000"
+                  value:
+                    error: Please fill in the form fields correctly
+                    errorCode: 1000
+                1001:
+                  summary: "1001"
+                  value:
+                    error: Your password must contain at least 8 characters, one lower case, one upper case, one number and one special character
+                    errorCode: 1001
+                1004:
+                  summary: "1004"
+                  value:
+                    error: missing data
+                    errorCode: 1004
+        409:
+          description: Email already exists
+          content:
+            application/json:
+              example:
+                error: Email already exists
+                errorCode: 1002
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 1003
+    get:
+      tags:
+        - User
+      summary: Log a user
+      description: Log a user
+      operationId: user.login
+      parameters:
+        - name: email
+          in: query
+          description: Email for login
+          example: test@domain.com
+          required: true
+        - name: password
+          in: query
+          description: Password for login
+          example: VeryDifficultP@ssw0rd
+          required: true
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                pseudo: john
+                id: 1
+                token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzEzOTAzMjE0LCJleHAiOjE3MTM5ODk2MTR9.n0R_eUbO50KLIGWu4Im6RL2oeYC1j9CVOUYwR2X_Rng
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                1014:
+                  summary: "1014"
+                  value:
+                    error: email & password must be strings
+                    errorCode: 1014
+                1010:
+                  summary: "1010"
+                  value:
+                    error: Invalid data
+                    errorCode: 1010
+                1011:
+                  summary: "1011"
+                  value:
+                    error: wrong password
+                    errorCode: 1011
+                1012:
+                  summary: "1012"
+                  value:
+                    error: an error occured
+                    errorCode: 1012
+                1013:
+                  summary: "1013"
+                  value:
+                    error: "Missing data"
+                    errorCode: 1013
+    put:
+      tags:
+        - User
+      summary: Edit a user
+      description: Edit a user
+      operationId: user.modify
+      requestBody:
+        description: The new data for the user to edit
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: User modified successfully
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                1023:
+                  summary: "1023"
+                  value:
+                    error: user_id must be a number || email, password & pseudo must be strings
+                    errorCode: 1023
+                1020:
+                  summary: "1020"
+                  value:
+                    error: Invalid data
+                    errorCode: 1020
+                1022:
+                  summary: "1022"
+                  value:
+                    error: User not found
+                    errorCode: 1022
+                1024:
+                  summary: "1024"
+                  value:
+                    error: Missing data
+                    errorCode: 1024
+        409:
+          description: Email already exists
+          content:
+            application/json:
+              example:
+                error: Email already exists
+                errorCode: 1025
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 1021
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - user_id
+        - pseudo
+        - email
+        - password
+      properties:
+        user_id:
+          type: integer
+          description: "User id"
+          example: 1
+        pseudo:
+          type: string
+          description: "User pseudo"
+          example: john
+        email:
+          type: string
+          description: "User email"
+          example: test@domain.com
+        password:
+          type: string
+          description: "User password"
+          example: VeryDifficultP@ssw0rd

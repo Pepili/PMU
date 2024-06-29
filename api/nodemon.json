@@ -1,0 +1,6 @@
+{
+    "verbose": true,
+    "watch": ["src/"],
+    "ignore": ["src/models/", "*.log", "tmp/*"],
+    "exec": "node index.js"
+  }

@@ -1,0 +1,303 @@
+paths:
+  /round:
+    post:
+      tags:
+        - Round
+      summary: Create a round
+      description: Create a round
+      operationId: round.create
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: The new round to create
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                duration:
+                  type: integer
+                  example: 2
+                roomId:
+                  type: integer
+                  example: 1
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Round created successfully
+                roundId: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                5000:
+                  summary: "5000"
+                  value:
+                    error: duration and roomId must be numbers
+                    errorCode: 5000
+                5002:
+                  summary: "5002"
+                  value:
+                    error: Missing data
+                    errorCode: 5002
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                summary: 5001
+                value:
+                  error: Internal server error
+                  errorCode: 5001
+  /round/disable/{id}:
+    put:
+      tags:
+        - Round
+      summary: Disable a round
+      description: Disable a round
+      operationId: round.disable
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Round id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Round disabled successfully
+                numberRowsUpdated: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                5011:
+                  summary: "5011"
+                  value:
+                    error: id must be a number
+                    errorCode: 5011
+                5012:
+                  summary: "5012"
+                  value:
+                    error: Missing data
+                    errorCode: 5012
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 5010
+  /round/{id}:
+    get:
+      tags:
+        - Round
+      summary: Get a round by its id
+      description: Get a round by its id
+      operationId: round.get
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Round id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+              example:
+                id: 1
+                status: 1
+                duration: 2
+                roomId: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                5021:
+                  summary: "5021"
+                  value:
+                    error: id must be a number
+                    errorCode: 5021
+                5022:
+                  summary: "5022"
+                  value:
+                    error: Missing data
+                    errorCode: 5022
+                5020:
+                  summary: "5020"
+                  value:
+                    error: Invalid data
+                    errorCode: 5020
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+  /round/bet/{id}:
+    get:
+      tags:
+        - Round
+      summary: Get bets in a round
+      description: Get bets in a round
+      operationId: round.getBets
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Round id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                No bets:
+                  summary: "No bets in this round"
+                  value:
+                    msg: No bets in this round
+                Bets:
+                  summary: "Bets in this round"
+                  value:
+                    bets: 
+                      - bet_id: 1
+                        sipsNumber: 3
+                        horse_id: 4
+                        user_id: 1
+                        round_id: 1
+                        pseudo: john
+                      - bet_id: 2
+                        sipsNumber: 2
+                        horse_id: 1
+                        user_id: 2
+                        round_id: 1
+                        pseudo: john
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                5032:
+                  summary: "5032"
+                  value:
+                    error: id must be a number
+                    errorCode: 5032
+                5033:
+                  summary: "5033"
+                  value:
+                    error: Missing data
+                    errorCode: 5033
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Round not found
+          content:
+            application/json:
+              example:
+                summary: 5031
+                value:
+                  error: Round not found
+                  errorCode: 5031
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                summary: 5030
+                value:
+                  error: Internal server error
+                  errorCode: 5030
+
+components:
+  schemas:
+    Round:
+      type: object
+      required:
+        - id
+        - status
+        - duration
+        - roomId
+      properties:
+        id:
+          type: integer
+          description: "Round id"
+        status:
+          type: integer
+          description: "Status 1 or 0"
+        duration:
+          type: integer
+          description: "Round duration"
+        roomId:
+          type: integer
+          description: "RoomId to which the round belongs"

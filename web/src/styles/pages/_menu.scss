@@ -1,0 +1,18 @@
+.menu {
+  padding: 4em 0;
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .btn-menu {
+      background-color: #00a870;
+      width: 354px;
+      height: 52px;
+      border: none;
+      font-size: 18px;
+      border-radius: 10px;
+      margin: 1em 0;
+      cursor: pointer;
+    }
+  }
+}

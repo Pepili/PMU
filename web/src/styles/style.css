@@ -1,0 +1,1541 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "roboto";
+  src: url("./fonts/Roboto-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "raleway";
+  src: url("./fonts/Raleway-Regular.ttf") format("truetype");
+}
+/*page*/
+html, body {
+  background: linear-gradient(180deg, #0E1C25 28%, #2E5958 100%);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "roboto";
+  color: #F5FFFC;
+}
+
+button {
+  font-family: "roboto";
+  color: #F5FFFC;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+* a {
+  text-decoration: none;
+}
+* li {
+  list-style: none;
+}
+* ul, * ol {
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+}
+#root .app {
+  min-height: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+}
+
+.header {
+  margin-top: 0;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: relative;
+}
+
+header {
+  z-index: -1;
+}
+header .elementUser {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+header .elementUser img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid #000;
+  margin-right: 15px;
+}
+header .elementUser p {
+  height: 20px;
+  font-size: 16px;
+}
+@media screen and (max-width: 700px) {
+  header .elementUser p {
+    display: none;
+  }
+}
+header .logo {
+  width: 150px;
+  height: 150px;
+  margin-top: 30px;
+}
+@media screen and (max-width: 700px) {
+  header .logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+header .rulesButton {
+  background: none;
+  border: none;
+  height: 100px;
+  font-size: 16px;
+  cursor: pointer;
+}
+@media screen and (max-width: 700px) {
+  header .rulesButton .txtButton {
+    display: none;
+  }
+}
+header .iconRules {
+  color: #00A870;
+  font-size: 18px;
+  margin-right: 10px;
+}
+header .rules-popup, header .chat-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.747);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+header .rules-popup .close-btn, header .chat-popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+header .chat-popup {
+  background-color: rgba(28, 54, 53, 0.9843137255);
+}
+header .hidden {
+  display: none;
+}
+
+.lightHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  height: 200px;
+}
+
+.light_logo {
+  width: 100px;
+  height: 100px;
+}
+
+@media all and (max-width: 1120px) {
+  .chatButton {
+    background: none;
+    border: none;
+    height: 100px;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .iconRules {
+    font-size: 30px !important;
+    margin-right: 0 !important;
+  }
+  header {
+    width: 90%;
+    margin: auto;
+    margin-top: 0;
+    align-items: center;
+    height: 150px;
+  }
+  .header {
+    height: 165px;
+  }
+  .lightHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 34px;
+  }
+  .lightHeader .rulesButton {
+    position: absolute;
+    right: 0;
+  }
+  .light_logo {
+    width: 130px;
+    height: 130px;
+    margin-top: 120px;
+  }
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1C3635;
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  z-index: -2;
+}
+
+.divFooter {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15px;
+  align-items: center;
+}
+.divFooter .negativeButton {
+  width: 180px;
+  height: 35px;
+  border-radius: 10px;
+  background: #B10E1D;
+  border: 0;
+  font-size: 16px;
+  color: #F5FFFC;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.divFooterLight {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+@media all and (max-width: 1120px) {
+  footer {
+    background-color: rgba(0, 0, 0, 0);
+    height: 50px;
+  }
+  footer .divFooter {
+    justify-content: end;
+  }
+  footer .divFooter .negativeButton {
+    background-color: inherit;
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    color: #B10E1D;
+    cursor: pointer;
+  }
+  .footerLight {
+    background-color: #1C3635 !important;
+    line-height: 60px !important;
+    height: 60px;
+  }
+}
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.slides-container {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.slide {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+}
+
+.imgRules {
+  width: 100%;
+  height: auto;
+  max-width: 900px;
+  border-radius: 20px;
+}
+
+.textRules {
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  line-height: 25px;
+}
+
+.indicators-container {
+  text-align: center;
+}
+
+.indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #F5FFFC;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #00A870;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.titleSlides {
+  height: 50px;
+  text-align: center;
+  font-family: "raleway";
+}
+
+.welcome {
+  margin-bottom: 0;
+  padding-bottom: 4em;
+  z-index: -2;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.welcome h2 {
+  font-size: 22px;
+  font-family: "raleway";
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+}
+.welcome .textField {
+  display: flex;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.welcome .label {
+  display: flex;
+  width: auto;
+  height: auto;
+  padding-right: 27px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.welcome .inputText {
+  border-radius: 10px;
+  background: #e9e9e9;
+  width: 363px;
+  height: 35px;
+  flex-shrink: 0;
+  padding-left: 10px;
+}
+.welcome .btnContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.welcome .login form {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.welcome .login form .textField {
+  position: relative;
+}
+.welcome .login form .textField .btn-pwd {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(-50%, 20%);
+  border: none;
+  color: #000;
+  font-size: 20px;
+}
+.welcome .signup form {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.welcome .signup form .textField {
+  position: relative;
+}
+.welcome .signup form .textField .btn-pwd {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(-50%, 20%);
+  border: none;
+  color: #000;
+  font-size: 20px;
+}
+.welcome .forgotpassword form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.welcome .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.747);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.welcome .modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+.welcome .modal .hidden {
+  display: none;
+}
+.welcome .primaryButton {
+  width: 180px;
+  height: 35px;
+  border-radius: 10px;
+  background: #00A870;
+  border: 0;
+  font-size: 16px;
+  color: #F5FFFC;
+  font-weight: 700;
+  cursor: pointer;
+}
+.welcome .secondaryButton {
+  width: 180px;
+  height: 35px;
+  border-radius: 10px;
+  background: none;
+  border: 2px solid #F5FFFC;
+  font-size: 16px;
+  color: #F5FFFC;
+  font-weight: 700;
+  cursor: pointer;
+}
+.welcome .linkButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #F5FFFC;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media all and (max-width: 1120px) {
+  .welcome {
+    height: 72vh;
+  }
+}
+.componentChat {
+  width: 90%;
+  margin-top: 30px;
+  max-width: 620px;
+}
+.componentChat .divChat h2 {
+  text-align: center;
+  font-family: "raleway";
+  font-size: 20px;
+  height: 40px;
+}
+.componentChat .divChat .allChat {
+  border: 1px solid #F5FFFC;
+  border-radius: 20px;
+  height: auto;
+}
+.componentChat .divChat .windowChat {
+  overflow-y: scroll;
+  height: 300px;
+  margin: 20px;
+  margin-bottom: 0;
+}
+.componentChat .divChat .windowChat::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0);
+}
+.componentChat .divChat .windowChat::-webkit-scrollbar {
+  width: 3px;
+  background-color: #1C3635;
+  border-radius: 5px;
+}
+.componentChat .divChat .windowChat::-webkit-scrollbar-thumb {
+  background-color: #F5FFFC;
+  border-radius: 5px;
+}
+.componentChat .divChat .windowChat .msgUser, .componentChat .divChat .windowChat .otherMsg {
+  display: flex;
+  margin: 15px 10px;
+  margin-left: 0;
+  align-items: center;
+}
+.componentChat .divChat .windowChat .msgUser .imgPseudoChat, .componentChat .divChat .windowChat .otherMsg .imgPseudoChat {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+}
+.componentChat .divChat .windowChat .msgUser p, .componentChat .divChat .windowChat .otherMsg p {
+  width: auto;
+  padding: 10px;
+  max-width: 60%;
+}
+.componentChat .divChat .windowChat .msgUser {
+  text-align: right;
+  justify-content: end;
+  flex-direction: row-reverse;
+}
+.componentChat .divChat .windowChat .msgUser .imgPseudoChat {
+  margin-left: 10px;
+}
+.componentChat .divChat .windowChat .msgUser p {
+  background-color: #F8CC46;
+  color: #1C3635;
+  border-radius: 15px 15px 0 15px;
+}
+.componentChat .divChat .windowChat .otherMsg {
+  text-align: left;
+  justify-content: start;
+}
+.componentChat .divChat .windowChat .otherMsg .imgPseudoChat {
+  margin-right: 10px;
+}
+.componentChat .divChat .windowChat .otherMsg p {
+  background-color: #00A870;
+  border-radius: 15px 15px 15px 0;
+}
+.componentChat .sendMessage {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  border-top: 1px solid #F5FFFC;
+}
+.componentChat .sendMessage .inputMessage {
+  height: 100%;
+  flex: 1;
+  border-bottom-left-radius: 20px;
+  padding-left: 14px;
+  font-family: "roboto";
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  caret-color: #F5FFFC;
+  color: #F5FFFC;
+}
+.componentChat .sendMessage .inputMessage::placeholder {
+  color: rgba(245, 255, 252, 0.4666666667) !important;
+}
+.componentChat .sendMessage .inputMessage:focus-visible {
+  outline: none;
+}
+.componentChat .sendMessage button {
+  height: 100%;
+  flex: 0.2;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 18px;
+  color: #F5FFFC;
+  border-left: 1px solid #F5FFFC;
+  cursor: pointer;
+}
+
+.Loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Loader .borderGif {
+  border: 2px solid #00A870;
+  border-radius: 50px;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.Loader .borderGif img {
+  width: 70px;
+  height: 70px;
+}
+@media all and (max-width: 1120px) {
+  .Loader {
+    position: static;
+    transform: none;
+    padding-top: 20px !important;
+    margin-bottom: 20px;
+  }
+}
+.join {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  flex: 1;
+  z-index: -2;
+}
+.join .arrow {
+  position: absolute;
+  left: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  background-color: unset;
+  border: none;
+}
+.join .formJoin {
+  text-align: center;
+  margin-top: 30px;
+}
+.join h2 {
+  font-family: "raleway";
+  height: 200px;
+  line-height: 150px;
+}
+.join form {
+  display: flex;
+  flex-direction: column;
+}
+.join form .codeRoom {
+  width: 354px;
+  height: 52px;
+  border-radius: 10px;
+  background: #F5FFFC;
+  color: #1C3635;
+  font-size: 16px;
+  padding: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.join form .codeRoom:focus-visible {
+  outline: none;
+}
+.join form .error {
+  border: 2px solid #B10E1D;
+}
+.join form button {
+  width: 354px;
+  height: 52px;
+  border-radius: 10px;
+  background: #00A870;
+  border: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.errorForm {
+  color: #F5FFFC;
+  text-align: center;
+  padding-top: 10px;
+}
+
+@media all and (max-width: 1120px) {
+  .arrow {
+    top: 100px;
+  }
+}
+.party {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  width: 96%;
+  margin: auto;
+  margin-bottom: 0;
+  padding-bottom: 4em;
+  z-index: -2;
+}
+
+.finish-overlay {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 600;
+  transition: bottom 3.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.finish-overlay img {
+  width: 100%;
+  max-height: 100%;
+}
+
+.finish-overlay.show {
+  bottom: 0;
+}
+
+.fade-in {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  z-index: 700;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  font-family: "raleway";
+  font-weight: bold;
+}
+
+@media all and (max-width: 1120px) {
+  .party {
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+    padding-bottom: 3em;
+  }
+  .fade-in.show img {
+    width: 250px;
+  }
+  .fade-in.show p {
+    font-size: 20px;
+  }
+}
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: relative;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -20px;
+  width: 160%;
+  height: 2px;
+  background-color: #F5FFFC;
+  border-radius: 10px;
+}
+
+.tab-content {
+  padding: 20px;
+  height: 66vh;
+  width: 100%;
+}
+
+.cards {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 100px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  background-color: #F5FFFC; /* Fond blanc */
+}
+
+.drawCard, .discardCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.drawCard {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 70px; /* Taille du logo */
+  height: 70px;
+}
+
+.type {
+  margin-top: 15px; /* Espace au-dessus du type de carte */
+  color: #1C3635;
+}
+
+.img-bottom {
+  position: absolute;
+  bottom: 0; /* Espacement au bas de la carte */
+  left: 50%; /* Centré horizontalement */
+  transform: translateX(-50%);
+  width: 90px; /* Taille de l'image en bas de la carte */
+  height: 90px;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.603);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.popup p {
+  height: 70px;
+  line-height: 70px;
+  font-family: "raleway";
+  font-size: 18px;
+}
+
+.closeCard {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+@media all and (max-width: 1120px) {
+  .cards {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 15vh;
+  }
+  .card {
+    width: 70px;
+    height: 100px;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+  .logo {
+    width: 45px; /* Taille du logo */
+    height: 45px;
+  }
+  .img-bottom {
+    width: 55px; /* Taille de l'image en bas de la carte */
+    height: 55px;
+  }
+  .type {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .popupContent img {
+    width: 250px;
+    display: block;
+    margin: auto;
+  }
+  .popupContent p {
+    font-size: 16px;
+  }
+}
+.racetrack, .playerChat {
+  display: flex;
+  align-self: stretch;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.track {
+  width: 650px;
+  height: 640px;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 1;
+}
+.track::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0);
+}
+.track::-webkit-scrollbar {
+  width: 6px;
+  background-color: #1C3635;
+  border-radius: 5px;
+}
+.track::-webkit-scrollbar-thumb {
+  background-color: #F5FFFC;
+  border-radius: 5px;
+}
+
+.lastStage .horseRun {
+  z-index: 2;
+  margin-bottom: 20px;
+}
+
+.stage {
+  position: relative;
+  background-color: #F8CC46;
+  width: 542px;
+  height: 120px;
+  border-bottom: 2px solid #1C3635;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  float: right;
+}
+.stage img {
+  width: 90px;
+  height: 90px;
+}
+.stage .finish-line {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 100%;
+  border: 2px solid #1C3635;
+  position: absolute;
+  z-index: 1;
+}
+.stage .cardInconvenient {
+  width: 85px;
+  height: 110px;
+  background-color: #F5FFFC;
+  position: absolute;
+  left: -95px;
+  bottom: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+.stage .cardInconvenient .imgInconvenient {
+  position: absolute;
+  bottom: 0; /* Espacement au bas de la carte */
+  left: 50%; /* Centré horizontalement */
+  transform: translateX(-50%);
+  width: 75px; /* Taille de l'image en bas de la carte */
+  height: 75px;
+}
+.stage .cardInconvenient .typeInconvenient {
+  margin-top: 10px; /* Espace au-dessus du type de carte */
+  color: #1C3635;
+  font-size: 12px;
+}
+.stage .cardInconvenient .logoInconvenient {
+  width: 60px;
+  height: 60px;
+}
+.stage .cardInconvenient.logoVisible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#position0 {
+  border-bottom: 0;
+}
+
+/* Définissez l'animation de zoom et de dézoom */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  } /* Zoom à 120% à mi-chemin */
+  100% {
+    transform: scale(1);
+  } /* Retour à la taille normale */
+}
+/* Appliquer l'animation à la classe borderRed */
+.borderRed {
+  border: 3px solid #B10E1D;
+  transition: transform 0.3s ease-in; /* Animation de transition */
+  animation: zoomInOut 1s infinite alternate; /* Utilisation de l'animation dès le rendu initial */
+}
+
+@media all and (max-width: 1120px) {
+  .racetrack {
+    align-self: auto;
+    width: 100%;
+    justify-content: center;
+  }
+  .track {
+    height: auto;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 54px;
+  }
+  .stage {
+    width: 70vw;
+    min-width: 300px;
+    height: 8vh;
+  }
+  .stage img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .cardInconvenient {
+    width: 42px !important;
+    height: 64px !important;
+    left: -52px !important;
+  }
+  .cardInconvenient .logoInconvenient {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .cardInconvenient .imgInconvenient {
+    width: 40px !important;
+    height: 40px !important;
+    left: 48% !important;
+  }
+  .lastStage {
+    height: 80px;
+  }
+}
+.pari {
+  background-color: #00A870;
+  width: 100%;
+  border-radius: 20px;
+  height: 152px;
+  overflow-y: scroll;
+}
+.pari::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0);
+}
+.pari::-webkit-scrollbar {
+  width: 6px;
+  background-color: #1C3635;
+  border-radius: 5px;
+}
+.pari::-webkit-scrollbar-thumb {
+  background-color: #F5FFFC;
+  border-radius: 5px;
+}
+.pari table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.pari table caption {
+  height: 36px;
+  line-height: 30px;
+}
+.pari table th, .pari table td {
+  height: 35px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 100;
+  border-right: 1px solid #F5FFFC;
+}
+.pari table .tdHorse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+.pari table .pHorse {
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.listBet {
+  width: 320px;
+}
+
+.playerChat {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 20px;
+  font-family: "raleway";
+}
+
+.titleBet {
+  margin-top: -35px;
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+@media all and (max-width: 1120px) {
+  .listBet {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .titleBet {
+    text-align: center;
+    font-size: 18px !important;
+    margin-top: -23px;
+  }
+  .pari {
+    height: 63vh;
+    overflow-y: hidden;
+  }
+}
+.pageResults {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  flex: 1;
+  margin-bottom: 0;
+  padding-bottom: 6em;
+  max-width: 2500px;
+  z-index: -2;
+}
+
+.resultsBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.resultsBlock .result {
+  background-color: rgba(0, 168, 112, 0.3647058824);
+  flex: 1;
+  width: 90%;
+  margin: auto;
+  border-radius: 20px;
+  text-align: center;
+  padding: 60px;
+  overflow-y: scroll;
+}
+.resultsBlock .result::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0);
+}
+.resultsBlock .result::-webkit-scrollbar {
+  width: 6px;
+  background-color: #1C3635;
+  border-radius: 5px;
+}
+.resultsBlock .result::-webkit-scrollbar-thumb {
+  background-color: #F5FFFC;
+  border-radius: 5px;
+}
+.resultsBlock .result h1 {
+  height: 65px;
+  font-weight: normal;
+  font-family: "raleway";
+  font-size: 24px;
+}
+.resultsBlock .result .listResults {
+  line-height: 54px;
+  font-size: 20px;
+}
+.resultsBlock .buttonResults {
+  flex: 0.3;
+  display: flex;
+  justify-content: end;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  position: relative;
+}
+.resultsBlock .buttonResults .buttonRelance {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 354px;
+  height: 52px;
+  border-radius: 10px;
+  background: #00A870;
+  border: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+.resultsBlock .buttonResults .buttonExit {
+  margin-left: auto;
+  width: 180px;
+  height: 35px;
+  border-radius: 10px;
+  background: #B10E1D;
+  border: 0;
+  font-size: 16px;
+  color: #F5FFFC;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.resultChatPlayer {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resultChatPlayer .listPlayer {
+  text-align: center;
+  width: 90%;
+}
+.resultChatPlayer .listPlayer h2 {
+  margin-top: -35px;
+  position: relative;
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: "raleway";
+  color: #F5FFFC;
+  font-size: 20px;
+}
+.resultChatPlayer .listPlayer .listUlPlayers {
+  background-color: #00A870;
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px 30px;
+  height: 150px;
+  overflow-y: scroll;
+  font-size: 18px;
+  max-width: 600px;
+  margin: auto;
+}
+.resultChatPlayer .listPlayer .listUlPlayers::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0);
+}
+.resultChatPlayer .listPlayer .listUlPlayers::-webkit-scrollbar {
+  width: 6px;
+  background-color: #1C3635;
+  border-radius: 5px;
+}
+.resultChatPlayer .listPlayer .listUlPlayers::-webkit-scrollbar-thumb {
+  background-color: #F5FFFC;
+  border-radius: 5px;
+}
+.resultChatPlayer .listPlayer li {
+  display: flex;
+  line-height: 30px;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  justify-content: center;
+}
+.resultChatPlayer .listPlayer .imgPseudo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid black;
+  margin-right: 12px;
+}
+
+@media all and (max-width: 1120px) {
+  .listPlayer h2 {
+    font-size: 18px !important;
+    font-weight: 100 !important;
+  }
+  .listPlayer li {
+    font-weight: 100 !important;
+  }
+  .pageResults {
+    flex-direction: column-reverse;
+    padding-bottom: 3em;
+  }
+  .resultsBlock {
+    max-width: 670px;
+    margin: auto;
+    width: 100%;
+  }
+  .result {
+    padding: 30px !important;
+  }
+  .result h1 {
+    font-size: 18px !important;
+    height: 38px !important;
+  }
+  .buttonResults {
+    flex-direction: column;
+    flex: none !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    height: 15vh;
+  }
+  .resultChatPlayer {
+    justify-content: center;
+  }
+  .buttonRelance {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    width: 180px !important;
+    height: 35px !important;
+    font-size: 16px !important;
+    cursor: pointer;
+  }
+  .buttonExit {
+    margin-left: 0 !important;
+  }
+  .listResults {
+    font-size: 16px !important;
+    line-height: 40px !important;
+  }
+}
+.menu {
+  padding: 4em 0;
+}
+.menu .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu .row .btn-menu {
+  background-color: #00a870;
+  width: 354px;
+  height: 52px;
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+.accordeon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.accordeon .btn-crea {
+  width: 786px;
+  height: 52px;
+  background-color: #00a870;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+.accordeon .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 4px solid #00a870;
+  border-radius: 35px;
+  margin-bottom: 1em;
+  width: 720px;
+  height: max-content;
+  padding: 1em 0;
+}
+.accordeon .form label {
+  width: 333px;
+  margin-bottom: 1em;
+}
+.accordeon .form label p {
+  margin-bottom: 1em;
+}
+.accordeon .form label select,
+.accordeon .form label input {
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+.accordeon .form label .result-mode-local {
+  overflow: scroll;
+  height: 125px;
+  margin-bottom: 0.5em;
+}
+.accordeon .form label .result-mode-local .admin {
+  width: 40%;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background-color: #fff;
+  color: #000;
+  margin-bottom: 0.5em;
+  font-size: 13px;
+}
+.accordeon .form label .result-mode-local input {
+  margin-bottom: 0.5em;
+}
+.accordeon .form label .result-mode-local .param {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.accordeon .form label .result-mode-local .param .pseudo {
+  width: 40%;
+}
+.accordeon .form label .result-mode-local .param .parie {
+  width: 15%;
+}
+.accordeon .form label .result-mode-local .param select {
+  width: 40%;
+}
+.accordeon .form label .result-mode-local .nom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.accordeon .form label .result-mode-local .nom p {
+  text-align: center;
+}
+.accordeon .form label .result-mode-local .nom p:first-child {
+  width: 40%;
+}
+.accordeon .form label .result-mode-local .nom p:nth-child(2) {
+  width: 15%;
+}
+.accordeon .form label .result-mode-local .nom p:last-child {
+  width: 40%;
+}
+.accordeon .form label .range {
+  display: flex;
+}
+.accordeon .form label .range p {
+  margin: 0;
+}
+.accordeon .form label .range input {
+  width: 90%;
+  margin-left: 1em;
+}
+.accordeon .form label .btn-nb-joueur {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+}
+.accordeon .form label .add,
+.accordeon .form label .remove {
+  background-color: transparent;
+  width: 17px;
+  height: 17px;
+  color: #fff;
+  border: 1px solid #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.accordeon .form button {
+  width: 180px;
+  height: 35px;
+  background-color: #00a870;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

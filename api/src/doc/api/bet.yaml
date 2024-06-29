@@ -1,0 +1,122 @@
+paths:
+  /bet:
+    post:
+      tags:
+        - Bet
+      summary: Create a bet
+      description: Create a bet
+      operationId: bet.create
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: The new bet to create
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sipsNumber:
+                  type: integer
+                  example: 3
+                horseId:
+                  type: integer
+                  example: 2
+                roundId:
+                  type: integer
+                  example: 1
+                userId:
+                  type: integer
+                  example: 1
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Bet created successfully
+                betId: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                3000:
+                  summary: "3000"
+                  value:
+                    error: sipsNumber, horseId, userId and roundId must be numbers
+                    errorCode: 3000
+                3002:
+                  summary: "3002"
+                  value:
+                    error: Missing data
+                    errorCode: 3002
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Round not found
+          content:
+            application/json:
+              example:
+                error: Round not found
+                errorCode: 3004
+        409:
+          description: This user has already made a bet on this round
+          content:
+            application/json:
+              example:
+                error: This user has already made a bet on this round
+                errorCode: 3005
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              examples:
+                3001:
+                  summary: 3001
+                  value:
+                    error: Internal server error
+                    errorCode: 3001
+                3003:
+                  summary: 3003
+                  value:
+                    error: Internal server error
+                    errorCode: 3003
+
+components:
+  schemas:
+    Bet:
+      type: object
+      required:
+        - bet_id
+        - sipsNumber
+        - horse_id
+        - user_id
+        - round_id
+      properties:
+        bet_id:
+          type: integer
+          description: "Bet id"
+        sipsNumber:
+          type: integer
+          description: "Number of sips bet"
+        horse_id:
+          type: integer
+          description: "HorseId that was bet"
+        user_id:
+          type: integer
+          description: "UserId of the player who made the bet"
+        round_id:
+          type: integer
+          description: "RoundId where the bet was made"

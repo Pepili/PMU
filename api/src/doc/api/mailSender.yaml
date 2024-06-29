@@ -1,0 +1,47 @@
+paths:
+  /mailSender:
+    post:
+      tags:
+          - MailSender
+      summary: "Send a password reset email"
+      description: "This endpoint sends a password reset email to the provided email address."
+      operationId: sendEmail
+      requestBody:
+        description: Email data to be sent
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to:
+                  type: string
+                  example: test@domain.com
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: "Email sent successfully"
+        400:
+          description: Invalid email address
+          content:
+            application/json:
+              example:
+                error: "Invalid email address"
+                errorCode: 7001
+        404:
+          description: User not found
+          content:
+            application/json:
+              example:
+                error: "User not found"
+                errorCode: 7002
+        500:
+          description: Error while sending the email
+          content:
+            application/json:
+              example:
+                error: "Error while sending the email"
+                errorCode: 7000

@@ -1,0 +1,684 @@
+paths:
+  /room:
+    post:
+      tags:
+        - Room
+      summary: Create a room
+      description: Create a room
+      operationId: room.create
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: The new room to create
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                maxNbPlayers:
+                  type: integer
+                  example: 3
+                userIds:
+                  type: array
+                  items:
+                    type: integer
+                    example: 1
+                adminId:
+                  type: integer
+                  example: 2
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Room created successfully
+                roomId: 1
+                status: 1
+                code: 123456
+                maxNbPlayers: 3
+                adminId: 2
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2000:
+                  summary: "2000"
+                  value:
+                    error: userIds must be an array of numbers only
+                    errorCode: 2000
+                2001:
+                  summary: "2001"
+                  value:
+                    error: adminId & maxNbPlayers must be numbers
+                    errorCode: 2001
+                2004:
+                  summary: "2004"
+                  value:
+                    error: missing data
+                    errorCode: 2004
+                2005:
+                  summary: "2005"
+                  value:
+                    error: Can't get the room object
+                    errorCode: 2005
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              examples:
+                2002:
+                  summary: "2002"
+                  value:
+                    error: Internal server error
+                    errorCode: 2002
+                2003:
+                  summary: "2003"
+                  value:
+                    error: Internal server error
+                    errorCode: 2003
+  /room/join:
+    post:
+      tags:
+        - Room
+      summary: Add a user to a given room
+      description: Add a user to a given room
+      operationId: room.join
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: The room and user to join
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roomId:
+                  type: integer
+                  example: 1
+                userId:
+                  type: integer
+                  example: 1
+        required: true
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User joined room successfully"
+                  numberRowsUpdated:
+                    type: integer
+                    example: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2060:
+                  summary: "2060"
+                  value:
+                    error: "roomId and userId must be numbers"
+                    errorCode: 2060
+                2063:
+                  summary: "2063"
+                  value:
+                    error: "Missing data"
+                    errorCode: 2063
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Round not found or status is 0
+          content:
+            application/json:
+              example:
+                error: Round not found or status is 0
+                errorCode: 2064
+        409:
+          description: User already in room
+          content:
+            application/json:
+              examples:
+                2061:
+                  summary: "2061"
+                  value:
+                    error: "User already in room"
+                    errorCode: 2061
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              examples:
+                2062:
+                  summary: "2062"
+                  value:
+                    error: "Internal server error"
+                    errorCode: 2062
+                2065:
+                  summary: "2065"
+                  value:
+                    error: "Internal server error"
+                    errorCode: 2065
+                2066:
+                  summary: "2066"
+                  value:
+                    error: "Internal server error"
+                    errorCode: 2066
+  /room/code/{code}:
+    get:
+      tags:
+        - Room
+      summary: Get a room by its code
+      description: Get a room by its code
+      operationId: room.getByCode
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: code
+          in: path
+          description: Room code
+          required: true
+          example: 123456
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                status: 1
+                code: 123456
+                maxNbPlayers: 3
+                adminId: 2
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2010:
+                  summary: "2010"
+                  value:
+                    error: Invalid data
+                    errorCode: 2010
+                2011:
+                  summary: "2011"
+                  value:
+                    error: Missing data
+                    errorCode: 2011
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+  /room/{id}:
+    get:
+      tags:
+        - Room
+      summary: Get a room by its id
+      description: Get a room by its id
+      operationId: room.get
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: RoomId
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                status: 1
+                code: 123456
+                maxNbPlayers: 3
+                adminId: 2
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2010:
+                  summary: "2070"
+                  value:
+                    error: Invalid data
+                    errorCode: 2070
+                2011:
+                  summary: "2071"
+                  value:
+                    error: Missing data
+                    errorCode: 2071
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+  /room/players/{id}:
+    get:
+      tags:
+        - Room
+      summary: Get players in a room
+      description: Get players in a room
+      operationId: room.getPlayers
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Room id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  admin:
+                    type: object
+                    properties:
+                      user_id:
+                        type: integer
+                      pseudo:
+                        type: string
+                      email:
+                        type: string
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        user_id:
+                          type: integer
+                        pseudo:
+                          type: string
+                        email:
+                          type: string
+              example:
+                users: 
+                  - user_id: 1
+                    pseudo: "john"
+                    email: "test@domain.com"
+                admin:
+                  user_id: 2
+                  pseudo: "john"
+                  email: "test@domain.com"
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2022:
+                  summary: "2022"
+                  value:
+                    error: id must be a number
+                    errorCode: 2022
+                2020:
+                  summary: "2020"
+                  value:
+                    error: Invalid data
+                    errorCode: 2020
+                2021:
+                  summary: "2021"
+                  value:
+                    error: Invalid data
+                    errorCode: 2021
+                2023:
+                  summary: "2023"
+                  value:
+                    error: Missing data
+                    errorCode: 2023
+        404:
+          description: Room not found
+          content:
+            application/json:
+              example:
+                error: Room not found
+                errorCode: 2025
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 2024
+  /room/messages/{id}:
+    get:
+      tags:
+        - Room
+      summary: Get messages in a room
+      description: Get messages in a room
+      operationId: room.getMessages
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Room id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                No messages:
+                  summary: "No messages in this room"
+                  value:
+                    msg: No messages in this room
+                Messages:
+                  summary: "Messages in this room"
+                  value:
+                    messages: 
+                      - message_id: 1
+                        content: "Hello World"
+                        sending_date: "2000-01-31 00:00:00"
+                        room_id: 1
+                        user_id: 1
+                      - message_id: 2
+                        content: "Hello World"
+                        sending_date: "2000-01-31 00:00:00"
+                        room_id: 1
+                        user_id: 2
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2032:
+                  summary: "2032"
+                  value:
+                    error: id must be a number
+                    errorCode: 2032
+                2031:
+                  summary: "2031"
+                  value:
+                    error: Room not found
+                    errorCode: 2031
+                2033:
+                  summary: "2033"
+                  value:
+                    error: Missing data
+                    errorCode: 2033
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: Room not found
+          content:
+            application/json:
+              example:
+                error: Room not found
+                errorCode: 2031
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 2030
+
+  /room/disable/{id}:
+    put:
+      tags:
+        - Room
+      summary: Disable a room
+      description: Disable a room
+      operationId: room.disable
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: Room id
+          required: true
+          example: 1
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              example:
+                message: Room disabled successfully
+                numberRowsUpdated: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2041:
+                  summary: "2041"
+                  value:
+                    error: id must be a number
+                    errorCode: 2041
+                2042:
+                  summary: "2042"
+                  value:
+                    error: Missing data
+                    errorCode: 2042
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              example:
+                error: Internal server error
+                errorCode: 2040
+  /room/user:
+    delete:
+      tags:
+        - Room
+      summary: Delete a given user from a given room
+      description: Delete a given user from a given room
+      operationId: room.deleteUser
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: roomId
+          required: true
+          description: Room id
+          schema:
+            type: integer
+            example: 1
+        - in: query
+          name: userId
+          required: true
+          description: User id
+          schema:
+            type: integer
+            example: 1
+      responses:
+        200:
+          description: User removed from room successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "User removed from room successfully"
+                  numberRowsUpdated:
+                    type: integer
+                    example: 1
+        400:
+          description: Bad request
+          content:
+            application/json:
+              examples:
+                2053:
+                  summary: "2053"
+                  value:
+                    error: Missing data
+                    errorCode: 2053
+                2050:
+                  summary: "2050"
+                  value:
+                    error: roomId and userId must be numbers
+                    errorCode: 2050
+        401:
+          description: Middleware error
+          content:
+            application/json:
+              examples:
+                9999:
+                  value:
+                    error: Invalid user ID
+                    errorCode: 9999
+                9998:
+                  value:
+                    error: {}
+                    errorCode: 9998
+        404:
+          description: User not found in room
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "User not found in room"
+                  errorCode:
+                    type: integer
+                    example: 2052
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal server error"
+                  errorCode:
+                    type: integer
+                    example: 2051
+
+components:
+  schemas:
+    Room:
+      type: object
+      required:
+        - room_id
+        - status
+        - code
+        - adminId
+        - userIds
+      properties:
+        room_id:
+          type: integer
+          description: "Room id"
+        status:
+          type: integer
+          description: "Status 1 or 0"
+        code:
+          type: integer
+          description: "Code to join the room"
+        adminId:
+          type: integer
+          description: "Room admin userId"
+        userIds:
+          description: "UserIds array of players in the room"
+          type: array
+          items:
+            type: integer

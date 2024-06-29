@@ -1,0 +1,78 @@
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
+.slides-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+}
+
+.slide {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.slide.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+}
+
+.imgRules {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    border-radius: 20px;
+}
+.textRules {
+    text-align: center;
+    width: 100%;
+    margin-top:30px;
+    margin-bottom: 20px;
+    line-height: 25px;
+}
+.indicators-container {
+    text-align: center;
+}
+
+.indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: $text;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: $color-primary;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left:0;
+}
+
+.next-btn {
+    right: 0;
+}
+.titleSlides {
+    height: 50px;
+    text-align: center;
+    font-family: 'raleway';
+}

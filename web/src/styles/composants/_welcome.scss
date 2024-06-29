@@ -1,0 +1,170 @@
+.welcome {
+  margin-bottom: 0;
+  padding-bottom: 4em;
+  z-index: -2;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    font-size: 22px;
+    font-family: "raleway";
+    font-weight: 700;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .textField {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .label {
+    display: flex;
+    width: auto;
+    height: auto;
+    padding-right: 27px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .inputText {
+    border-radius: 10px;
+    background: #e9e9e9;
+    width: 363px;
+    height: 35px;
+    flex-shrink: 0;
+    padding-left: 10px;
+  }
+
+  .btnContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .login {
+    form {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+
+      .textField {
+        position: relative;
+
+        .btn-pwd {
+          position: absolute;
+          top: 50%;
+          right: 0%;
+          transform: translate(-50%, 20%);
+          border: none;
+          color: #000;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .signup {
+    form {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+
+      .textField {
+        position: relative;
+
+        .btn-pwd {
+          position: absolute;
+          top: 50%;
+          right: 0%;
+          transform: translate(-50%, 20%);
+          border: none;
+          color: #000;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .forgotpassword {
+    form {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .modal {
+    position: fixed; // Positionne le popup par rapport à la fenêtre du navigateur
+    top: 0; // Aligne le popup en haut de la fenêtre
+    left: 0; // Aligne le popup à gauche de la fenêtre
+    width: 100%; // Prend toute la largeur de la fenêtre
+    height: 100%; // Prend toute la hauteur de la fenêtre
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.747
+    ); // Fond semi-transparent pour l'effet de superposition
+    display: flex; // Utilise flexbox pour centrer le contenu verticalement et horizontalement
+    justify-content: center;
+    align-items: center;
+    z-index: 2; // Assure que le popup est au-dessus du header
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+  .primaryButton {
+    @include button($color-primary, 0);
+  }
+
+  .secondaryButton {
+    @include button(none, 2px solid $text);
+  }
+
+  .linkButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $text;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+@media all and (max-width: 1120px) {
+  .welcome {
+    height: 72vh;
+  }
+}

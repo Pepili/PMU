@@ -1,0 +1,145 @@
+.header {
+    margin-top: 0;
+    height:200px;
+    display:flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    position: relative; // Assure que les enfants positionnés seront positionnés par rapport à ce parent
+}
+header {
+    z-index: -1; // Assure que le header est en premier plan
+
+    .elementUser {
+        display:flex;
+        height:100px;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid #000;
+            margin-right: 15px;
+        }
+        p {
+            height: 20px;
+            font-size: 16px;
+            @media screen and (max-width: 700px) {
+                display: none;
+            }
+        }
+    }
+    .logo {
+        width:150px;
+        height: 150px;
+        margin-top:30px;
+        @media screen and (max-width: 700px) {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .rulesButton {
+        background: none;
+        border: none;
+        height: 100px;
+        font-size:16px;
+        cursor: pointer;
+        .txtButton {
+            @media screen and (max-width: 700px) {
+                display: none;
+            }
+        }
+    }
+    .iconRules {
+        color: $color-primary;
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    .rules-popup, .chat-popup {
+        position: fixed; // Positionne le popup par rapport à la fenêtre du navigateur
+        top: 0; // Aligne le popup en haut de la fenêtre
+        left: 0; // Aligne le popup à gauche de la fenêtre
+        width: 100%; // Prend toute la largeur de la fenêtre
+        height: 100%; // Prend toute la hauteur de la fenêtre
+        background-color: rgba(0, 0, 0, 0.747); // Fond semi-transparent pour l'effet de superposition
+        display: flex; // Utilise flexbox pour centrer le contenu verticalement et horizontalement
+        justify-content: center;
+        align-items: center;
+        z-index: 1001; // Assure que le popup est au-dessus du header
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        // Ajoutez d'autres styles pour personnaliser l'apparence du popup
+    }
+    .chat-popup {
+        background-color: #1c3635fb;
+    }
+    .hidden {
+        display: none;
+    }
+}
+.lightHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    height:200px;
+}
+.light_logo {
+    width: 100px;
+    height: 100px;
+}
+
+@media all and (max-width: 1120px) {
+    .chatButton {
+        background: none;
+        border: none;
+        height: 100px;
+        font-size:30px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .iconRules {
+        font-size:30px !important;
+        margin-right: 0 !important;
+    }
+    header {
+        width: 90%;
+        margin: auto;
+        margin-top: 0;
+        align-items: center;
+        height: 150px;
+    }
+    .header {
+        height: 165px;
+    }
+    .lightHeader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 34px;
+        .rulesButton {
+            position: absolute;
+            right: 0;
+        }
+    }
+    .light_logo {
+        width: 130px;
+        height: 130px;
+        margin-top: 120px;
+    }
+}

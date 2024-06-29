@@ -1,0 +1,50 @@
+footer {
+    position:absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    background-color: $footer;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    z-index: -2;
+}
+.divFooter {    
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+    align-items: center;
+
+    .negativeButton {
+        @include button($color-secondary, 0);
+    }
+}
+.divFooterLight {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+@media all and (max-width: 1120px) {
+    footer {
+        background-color: rgba(0, 0, 0, 0);
+        height: 50px;
+        .divFooter {
+            justify-content: end;
+            .negativeButton {
+                background-color: inherit;
+                width: auto;
+                height: auto;
+                font-size: 30px;
+                color: $color-secondary;
+                cursor: pointer;
+            }
+        }
+    }
+    .footerLight {
+        background-color: $footer !important;
+        line-height: 60px !important;
+        height: 60px;
+    }
+}
